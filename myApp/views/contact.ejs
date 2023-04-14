@@ -1,0 +1,48 @@
+<%- include('header') %>
+
+<h2>Contact List</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Message</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Loop through the contacts and display each one -->
+    <% for(var i=0; i < contacts.length; i++) { %>
+        <tr>
+            <td><%= contacts[i].name %></td>
+            <td><%= contacts[i].email %></td>
+            <td><%= contacts[i].message %></td>
+            <td>
+                <a href="/edit-contact/<%= contacts[i]._id %>">Edit</a>
+                <a href="/delete-contact/<%= contacts[i]._id %>">Delete</a>
+            </td>
+        </tr>
+    <% } %>
+    </tbody>
+</table>
+
+<h2>Contact Me</h2>
+
+<form action="/send-message" method="post">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+    </div>
+    <button type="submit">Send Message</button>
+</form>
+
+<%- include('footer') %>

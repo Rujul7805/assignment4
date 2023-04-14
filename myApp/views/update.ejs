@@ -1,0 +1,21 @@
+<%- include('header') %>
+
+<h2>Edit Contact</h2>
+<form action="/update-contact/<%= contact._id %>" method="post">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="<%= contact.name %>" required>
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="<%= contact.email %>" required>
+    </div>
+    <div>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required><%= contact.message %></textarea>
+    </div>
+    <button type="submit">Update Contact</button>
+    <a href="/delete-contact/<%= contact._id %>">Delete Contact</a>
+    <a href="/contact">Cancel</a>
+</form>
+<%- include('footer') %>

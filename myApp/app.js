@@ -1,17 +1,17 @@
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
+const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
-var aboutmeRouter = require("./routes/aboutme");
-var contactmeRouter = require("./routes/contactme");
-var serviceRouter = require("./routes/services");
-var projectRouter = require("./routes/projects");
+const indexRouter = require("./routes/index");
+const usersRouter = require("./routes/users");
+const aboutmeRouter = require("./routes/aboutme");
+const contactmeRouter = require("./routes/contactme");
+const serviceRouter = require("./routes/services");
+const projectRouter = require("./routes/projects");
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -25,9 +25,9 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-app.use("/aboutme", aboutmeRouter);
+app.use("/about", aboutmeRouter);
 app.use("/service", serviceRouter);
-app.use("/contactme", contactmeRouter);
+app.use("/contact", contactmeRouter);
 app.use("/projects", projectRouter);
 
 // catch 404 and forward to error handler
